@@ -29,19 +29,33 @@ function DataFetching() {
         setPosts(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
   if (!idFromClick) {
     return (
       <div>
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-        <button type="button" onClick={handleClick}>
-          Search
+        <input
+          className="form-control"
+          type="text"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
+        <button
+          className="btn btn-outline-secondary m-2"
+          type="button"
+          onClick={handleClick}
+        >
+          Fetch Post
         </button>
         <h1>{post.title}</h1>
         {
-          <ol>
+          <ol className="list-group list-group-numbered">
             {posts.map((post) => (
-              <li key={post.id}>{post.title}</li>
+              <li
+                className="list-group-item list-group-item-primary"
+                key={post.id}
+              >
+                {post.title}
+              </li>
             ))}
           </ol>
         }
@@ -50,9 +64,18 @@ function DataFetching() {
   } else {
     return (
       <div>
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-        <button type="button" onClick={handleClick}>
-          Search
+        <input
+          className="form-control"
+          type="text"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
+        <button
+          className="btn btn-outline-secondary m-2"
+          type="button"
+          onClick={handleClick}
+        >
+          Fetch Post
         </button>
         <h1>{post.title}</h1>
         <h2>{post.body}</h2>
